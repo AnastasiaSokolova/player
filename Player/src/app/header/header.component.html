@@ -1,0 +1,10 @@
+<header>
+  <span>AngularPlayer</span>
+  <div class="content">
+    <div class="user"><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i></div>
+    <div class="dropdown"><i class="fa fa-angle-down" aria-hidden="true" (click)="bool = !bool"></i></div>
+    <ul class="login-window" [class.show]="bool">
+      <li><a href="#">Sing in</a></li>
+    </ul>
+  </div>
+</header>
