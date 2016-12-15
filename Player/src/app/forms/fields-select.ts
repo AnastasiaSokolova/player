@@ -1,9 +1,10 @@
 import { FieldsBase } from './fields-base';
 
-export class RadiobtnFields extends FieldsBase<string> {
+export class SelectFields extends FieldsBase<string> {
 
-  controlType = 'radiobtn';
+  controlType = 'dropdown';
   options: {key: string, value: string}[] = [];
+
 
   constructor(options: {} = {}) {
     super(options);

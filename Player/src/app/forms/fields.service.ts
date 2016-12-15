@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FieldsBase } from './fields-base';
 import { TextboxFields } from './fields-textbox';
-import { RadiobtnFields } from './fields-radiobtn';
+import { SelectFields } from './fields-select';
 
 @Injectable()
 export class FieldsService {
@@ -9,7 +9,7 @@ export class FieldsService {
   getFieldsForRegistration() {
     let fields: FieldsBase<any>[] = [
       new TextboxFields({
-        key: 'firstName',
+        key: 'firstname',
         label: 'First name',
         value: '',
         type: 'text',
@@ -17,7 +17,7 @@ export class FieldsService {
         order: 1
       }),
       new TextboxFields({
-        key: 'lastName',
+        key: 'lastname',
         label: 'Last name',
         value: '',
         type: 'text',
@@ -40,15 +40,17 @@ export class FieldsService {
         required: true,
         order: 4
       }),
-      new RadiobtnFields({
+      new SelectFields({
+        key: 'gender',
+        label: 'Gender',
         options: [
-          {key: 'gender',  value: 'male'},
-          {key: 'gender',  value: 'female'},
+          {key: 'male',  value: 'Male'},
+          {key: 'female',  value: 'Female'},
         ],
         order: 5
       }),
       new TextboxFields({
-        key: 'emailAddress',
+        key: 'email',
         label: 'Email',
         type: 'email',
         order: 6
