@@ -1,0 +1,28 @@
+input {
+  border: none;
+  border-bottom: 2px solid #4DD0E1;
+  outline: none;
+  margin-top: 20px;
+  &:-webkit-autofill {
+    background-color: white !important;
+  }
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 300px;
+}
+
+.ng-untouched {
+  .errorMessage {
+    display: none;
+  }
+}
+
+select {
+  width: 300px;
+  padding: 5px;
+  margin: 5px 0;
+}

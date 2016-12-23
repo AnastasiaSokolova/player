@@ -1,0 +1,10 @@
+<div>
+    <form (ngSubmit)="onSub()" [formGroup]="form">
+        <div *ngFor="let field of fields">
+            <df-fields [field]="field" [form]="form"></df-fields>
+        </div>
+        <div>
+            <button type="submit" [disabled]="!form.valid">Log in</button>
+        </div>
+    </form>
+</div>
