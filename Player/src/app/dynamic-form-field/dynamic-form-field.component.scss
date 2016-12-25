@@ -15,10 +15,13 @@ input[type="password"] {
   width: 300px;
 }
 
-.ng-untouched {
-  .errorMessage {
+
+.errorMessage {
     display: none;
-  }
+}
+
+.ng-touched + .errorMessage {
+  display: block;
 }
 
 select {

@@ -13,6 +13,11 @@ import { LoginForm } from './share/login-form';
 import { RegistrationForm } from './share/registration-form';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormFieldsComponent } from './dynamic-form-field/dynamic-form-field.component';
+//import { LoggedHeaderComponent } from './logged-header/logged-header.component';
+//import { LoginGuard } from './share/login-guard.service';
+import { AuthService} from './share/auth.service';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,9 @@ import { DynamicFormFieldsComponent } from './dynamic-form-field/dynamic-form-fi
     LoginForm,
     RegistrationForm,
     DynamicFormComponent,
-    DynamicFormFieldsComponent
+    DynamicFormFieldsComponent,
+    PlaylistComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,9 @@ import { DynamicFormFieldsComponent } from './dynamic-form-field/dynamic-form-fi
     ButtonModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+     AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

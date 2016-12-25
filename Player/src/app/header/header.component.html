@@ -1,10 +1,15 @@
 <header>
   <span>AngularPlayer</span>
+  <ul>
+  	<li><a routerLink="/playlist">Playlist</a></li>
+  	<li><a routerLink="/account">Account</a></li>
+  </ul>
   <div class="content">
     <div class="user"><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i></div>
     <div class="dropdown"><i class="fa fa-angle-down" aria-hidden="true" (click)="bool = !bool"></i></div>
     <ul class="login-window" [class.show]="bool">
       <li><a routerLink="/login" >Sing in</a></li>
+      <li><a (click)='logout()'>Sing out</a></li>
     </ul>
   </div>
 </header>

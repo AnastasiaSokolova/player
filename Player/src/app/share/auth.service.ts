@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
+//import { User } from './user';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
+import { User } from './User';
 
 @Injectable()
 export class AuthService {
+
+  public currentUser: User;
 
 
   constructor(private http: Http){}
@@ -24,12 +27,25 @@ export class AuthService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  isUser(data: any) : any {
+  loginUser(data: any) : any {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
 
       return this.http.post('http://localhost:8000/users', data, options)
-        .map((res: Response) => { return res.json() })
+        .map((res: Response) => {
+         /*this.currentUser = res.json();*/
+         let user = res.json(); 
+         localStorage.setItem('username', user.username);
+         return res.json() 
+        })
         .catch((error:any) => Observable.throw('error'));
-    }
+  }
+
+  isUser(): boolean {
+    //console.log(this.currentUser);
+    //console.log(!!this.currentUser);
+    //return !!this.currentUser;
+    return !!(localStorage.getItem('username'))
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FieldsService } from '../forms/fields.service';
 import { AuthService } from '../share/auth.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/Rx';
 
 @Component({
@@ -16,12 +17,12 @@ import 'rxjs/Rx';
 export class LoginForm {
   fields: any[];
 
-  constructor(service: FieldsService, private authService: AuthService) {
+  constructor(service: FieldsService, private authService: AuthService, private router: Router) {
     this.fields = service.getFieldsForLogin();
   }
 
   onSubmit(value) {
-    this.authService.isUser(JSON.stringify(value)).subscribe((data) => console.log(data))
+    this.authService.loginUser(JSON.stringify(value)).subscribe((data) => {this.router.navigate(['/home'])})
   }
 
 }
