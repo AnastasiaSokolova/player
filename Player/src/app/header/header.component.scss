@@ -20,6 +20,25 @@ header {
       float: left;
     }
   }
+  .submenu {
+    display: inline-block;
+    width: 300px;
+    list-style: none;
+    li {
+      display: inline-block;
+      &:first-child {
+        border-right: 1px solid lightgrey;
+      }
+      a {
+        text-transform: uppercase;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        padding: 5px 20px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .dropdown {
@@ -44,6 +63,7 @@ header {
         line-height: 40px;
         color: #AFB42B;
         font-family: 'Roboto', sans-serif;
+        cursor: pointer;
         &:hover {
           color: #CDDC39
         }

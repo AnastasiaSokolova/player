@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 
-import { TabViewModule } from 'primeng/primeng';
+import { TabViewModule, DialogModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
 import { AppRoutingModule } from './share/app.routing.ts';
 import { LoginForm } from './share/login-form';
@@ -18,6 +18,7 @@ import { DynamicFormFieldsComponent } from './dynamic-form-field/dynamic-form-fi
 import { AuthService} from './share/auth.service';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AccountComponent } from './account/account.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AccountComponent } from './account/account.component';
     AppRoutingModule,
     TabViewModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DialogModule
   ],
   providers: [
      AuthService
