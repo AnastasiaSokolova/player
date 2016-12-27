@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FieldsService } from '../forms/fields.service';
 import { AuthService } from '../share/auth.service';
 import 'rxjs/Rx';
@@ -14,6 +14,7 @@ import 'rxjs/Rx';
 })
 
 export class RegistrationForm {
+
   fields: any[];
 
   constructor(service: FieldsService, private authService: AuthService) {

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { TabViewModule } from 'primeng/primeng';
 
+import { LoginForm } from '../share/login-form';
+import { RegistrationForm } from '../share/registration-form';
 
 
 @Component({
@@ -10,9 +12,16 @@ import { TabViewModule } from 'primeng/primeng';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild(LoginForm)
+
+  public lf: LoginForm;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  modalDialog(): boolean {
+    return  this.lf.df.form.dirty;
+  }
 }

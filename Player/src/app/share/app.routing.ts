@@ -6,11 +6,13 @@ import { ModuleWithProviders } from '@angular/core';
 import { LoginGuard } from './login-guard.service';
 import { PlaylistComponent } from '../playlist/playlist.component';
 import { AccountComponent } from '../account/account.component';
+import { CanDeactivateGuard }  from '../share/candeactivate-guard.service';
 
 export const  appRoutes: Routes = <Routes>[
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canDeactivate: [CanDeactivateGuard]
   },
   {
     path: 'home',
@@ -20,7 +22,7 @@ export const  appRoutes: Routes = <Routes>[
     path: 'account',
     component: AccountComponent,
     canActivate: [LoginGuard]
-     
+
   },
   {
     path: 'playlist',
@@ -43,7 +45,8 @@ export const  appRoutes: Routes = <Routes>[
     RouterModule
   ],
   providers: [
-    LoginGuard
+    LoginGuard,
+    CanDeactivateGuard
   ]
 })
 export class AppRoutingModule {}

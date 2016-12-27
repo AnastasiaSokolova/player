@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
+import { DynamicFormComponent } from '../dynamic-form/dynamic-form.component';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http){}
+  constructor(private http: Http, private df: DynamicFormComponent){}
 
-  addUser(user: User): Observable<User[]> {
-       let headers = new Headers({ 'Content-Type': 'application/json' });
-       let options = new RequestOptions({ headers: headers });
-
-       return this.http.post('http://localhost:8000/login', JSON.stringify(user), options)
-         .map((res: Response) => { return res.json() })
-         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  checkForm(): boolean {
+     return this.df.form.dirty;
   }
-
 }

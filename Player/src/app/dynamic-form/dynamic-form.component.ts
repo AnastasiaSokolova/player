@@ -22,7 +22,7 @@ export class DynamicFormComponent implements OnInit {
     form: FormGroup;
     public users: User[];
 
-    constructor(private fcs: FieldsControlService) {  }
+    constructor(private fcs: FieldsControlService) {}
     ngOnInit() {
         this.form = this.fcs.toFormGroup(this.fields);
     }
@@ -33,6 +33,7 @@ export class DynamicFormComponent implements OnInit {
     onSub(): void {
       this.onSubmit.emit(this.form.value);
     }
+
 
 }
 
