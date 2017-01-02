@@ -1,11 +1,6 @@
 <div class="login">
-<p-tabView>
-  <p-tabPanel header="Login">
-    <login-form></login-form>
-  </p-tabPanel>
-  <p-tabPanel header="Registration">
-    <registration-form></registration-form>
-  </p-tabPanel>
-</p-tabView>
+<a [routerLink]="['./loginform']">Login</a>
+<a [routerLink]="['./registration']">Registration</a>
 <div>
+<router-outlet></router-outlet>
 

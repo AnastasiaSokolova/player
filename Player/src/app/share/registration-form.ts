@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FieldsService } from '../forms/fields.service';
 import { AuthService } from '../share/auth.service';
+import { DynamicFormComponent } from '../dynamic-form/dynamic-form.component';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/Rx';
 
 @Component({
@@ -15,16 +17,18 @@ import 'rxjs/Rx';
 
 export class RegistrationForm {
 
+  @ViewChild(DynamicFormComponent)
+  public df: DynamicFormComponent;
+
   fields: any[];
 
-  constructor(service: FieldsService, private authService: AuthService) {
+  constructor(service: FieldsService, private authService: AuthService,
+    private router: Router) {
     this.fields = service.getFieldsForRegistration();
   }
 
   onSubmit(value) {
-    this.authService.addUser(value).subscribe(
-      err => {
-        console.log(err);
-      });
+    this.authService.addUser(value).subscribe(()=> this.router.navigate(['/home']));
+    
   }
 }

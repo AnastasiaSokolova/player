@@ -7,8 +7,7 @@ import { LoginComponent } from '../login/login.component';
 @Injectable()
 export class CanDeactivateGuard implements CanDeactivate<LoginComponent> {
   canDeactivate(target: LoginComponent): any {
-    console.log(target);
-    if(target.modalDialog()){
+    if(target.modalDialog() && !target.wasClicked()){
       return window.confirm('Do you really want to cancel?');
     }
     return true;

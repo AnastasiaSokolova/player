@@ -16,9 +16,11 @@ import { DynamicFormFieldsComponent } from './dynamic-form-field/dynamic-form-fi
 //import { LoggedHeaderComponent } from './logged-header/logged-header.component';
 //import { LoginGuard } from './share/login-guard.service';
 import { AuthService} from './share/auth.service';
+import { UserService } from './share/user.service';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { AccountComponent } from './account/account.component';
-
+import { ContentComponent } from './content/content.component';
+import { ResolveService } from './share/resolve.service';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { AccountComponent } from './account/account.component';
     DynamicFormComponent,
     DynamicFormFieldsComponent,
     PlaylistComponent,
-    AccountComponent
+    AccountComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { AccountComponent } from './account/account.component';
     DialogModule
   ],
   providers: [
-     AuthService
+     AuthService,
+     UserService,
+     ResolveService
   ],
   bootstrap: [AppComponent]
 })

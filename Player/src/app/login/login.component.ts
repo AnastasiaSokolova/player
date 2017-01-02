@@ -12,9 +12,9 @@ import { RegistrationForm } from '../share/registration-form';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild(LoginForm)
+  @ViewChild(RegistrationForm)
 
-  public lf: LoginForm;
+  public rf: RegistrationForm;
 
   constructor() { }
 
@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   modalDialog(): boolean {
-    return  this.lf.df.form.dirty;
+    return  this.rf.df.form.dirty;
   }
+  wasClicked(): boolean {
+    return  this.rf.df.clicked;
+  }
+
 }

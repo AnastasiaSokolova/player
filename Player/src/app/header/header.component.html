@@ -1,8 +1,8 @@
 <header>
   <span>AngularPlayer</span>
-  <ul class="submenu">
-  	<li><a routerLink="/playlist">Playlist</a></li>
-  	<li><a routerLink="/account">Account</a></li>
+  <ul class="submenu" [hidden]='!isUser()'>
+  	<li><a routerLink="/playlist" [hidden]='!isUser()'>Playlist</a></li>
+  	<li><a routerLink="/account" [hidden]='!isUser()'>Account</a></li>
   </ul>
   <div class="content">
     <div class="user"><i class="fa fa-user-secret fa-2x" aria-hidden="true"></i></div>

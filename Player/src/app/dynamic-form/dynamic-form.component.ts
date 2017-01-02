@@ -21,6 +21,7 @@ export class DynamicFormComponent implements OnInit {
     @Input() fields: FieldsBase<any>[] = [];
     form: FormGroup;
     public users: User[];
+    public clicked: boolean = false;
 
     constructor(private fcs: FieldsControlService) {}
     ngOnInit() {
@@ -31,6 +32,7 @@ export class DynamicFormComponent implements OnInit {
 
 
     onSub(): void {
+      this.clicked = true;
       this.onSubmit.emit(this.form.value);
     }
 

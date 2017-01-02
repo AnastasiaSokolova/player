@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FieldsService } from '../forms/fields.service';
 import { AuthService } from '../share/auth.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { DynamicFormComponent } from '../dynamic-form/dynamic-form.component';
+
 import 'rxjs/Rx';
 
 @Component({
@@ -16,8 +16,7 @@ import 'rxjs/Rx';
 })
 
 export class LoginForm {
-  @ViewChild(DynamicFormComponent)
-  public df: DynamicFormComponent;
+
 
   fields: any[];
 
