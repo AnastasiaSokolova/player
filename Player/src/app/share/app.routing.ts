@@ -16,7 +16,7 @@ export const  appRoutes: Routes = <Routes>[
   {
     path: 'login',
     component: LoginComponent,
-    canDeactivate: [CanDeactivateGuard],
+    //canDeactivate: [CanDeactivateGuard],
     children: [
       {
         path: 'loginform',

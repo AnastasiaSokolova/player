@@ -7,6 +7,8 @@ module.exports = function(app){
 
     app.post('/login', users.add);
     app.post('/users', users.search);
+    app.post('/setplaylist', users.setPlaylist);
+    app.post('/getplaylist', users.getPlaylist)
     /*app.put('/employees/:id', validate(validation), employees.update);
     app.delete('/employees/:id', employees.delete);*/
     app.get('/import', users.import);

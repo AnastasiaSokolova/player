@@ -16,7 +16,11 @@ exports.import = function(req, res){
       username: 'jH',
       password: '1111',
       gender: 'male',
-      email: ''
+      email: '',
+      playlist: {
+        track_url: '',
+        image_url: ''
+      }
     },
     {
       firstname: 'Rosy',
@@ -24,7 +28,11 @@ exports.import = function(req, res){
       username: 'rosy',
       password: '2222',
       gender: 'female',
-      email: ''
+      email: '',
+      playlist: {
+        track_url: '',
+        image_url: ''
+      }
     },
     function (err) {
      if (err) return console.log(err);
@@ -48,6 +56,30 @@ exports.search = function(req, res){
       return res.send(result);
   });
 };
+
+
+
+
+exports.setPlaylist = function(req, res) {
+   console.log(req.body);
+   var playlist = {"track_url": req.body.track_url, "image_url": req.body.image_url};
+   User.findOneAndUpdate({'username': req.body.username}, {$push: {playlist: playlist}},
+     {safe: true, upsert: true}, function(err, model) {
+        console.log(err);
+    });
+
+   return res.send({status: 200, msg: 'Success!'});
+};
+
+
+exports.getPlaylist = function(req, res) {
+  var username = req.body.username;
+  User.findOne({'username': username},function(err, result) {
+      if(err) res.send(err);
+      console.log(result.playlist);
+      return res.send(result.playlist);
+  });
+}
 
 
 /*
@@ -78,9 +110,7 @@ exports.update = function(req, res) {
 };*/
 
 exports.add = function(req, res) {
-  console.log(req.body);
    var user = new User(req.body);
-   console.log(user);
    user.save(function(err) {
       if(err) res.send(err);
       res.json(user);
@@ -89,7 +119,6 @@ exports.add = function(req, res) {
 
 exports.findAll = function(req, res){
   User.find({},function(err, results) {
-    console.log(results);
     if(err) res.send(err);
     return res.send(results);
   });

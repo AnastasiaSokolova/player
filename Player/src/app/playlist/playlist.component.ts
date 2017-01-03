@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../share/user.service';
 
 @Component({
   selector: 'app-playlist',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor() { }
+  public tracks: Array<String> =  [];
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+  	this.userService.loadTracks().subscribe((res)=> { this.tracks = res});
   }
 
 }

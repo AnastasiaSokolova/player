@@ -9,7 +9,9 @@ var UserSchema = new Schema({
     username: String,
     password: String,
     gender: String,
-    email: String
+    email: String,
+    playlist: [{ track_url: String, image_url: String}]
+
 });
 
 

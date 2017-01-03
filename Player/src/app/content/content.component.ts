@@ -14,11 +14,12 @@ export class ContentComponent implements OnInit {
   
 
   public tracks: Array<String> =  [];
+  
   constructor( private userService: UserService) { }
 
 
   ngOnInit() {
-    this.userService.mix().subscribe((res)=> { console.log(res.aTracks); this.tracks = res.aTracks; this.tracks.length = 50;});
+    this.userService.mix().subscribe((res)=> { this.tracks = res.aTracks; this.tracks.length = 50;});
   }
 
   pasteImage(image: string): string {
@@ -27,6 +28,10 @@ export class ContentComponent implements OnInit {
   		results = image;
   	} 
   	return results;
+  }
+
+  saveToPlaylist(src1,src2) {
+  	this.userService.saveTracks(src1, src2).subscribe(()=> console.log('Everything good'));
   }
 
 }
