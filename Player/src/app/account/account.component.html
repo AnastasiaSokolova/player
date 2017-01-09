@@ -1,3 +1,21 @@
-<p>
-  account works!
-</p>
+<h2>Your account</h2>
+<div *ngIf="user"  class="list">
+ <ul [hidden]="bool">
+  <li>First name: {{user.firstname}}</li>
+  <li>Last name: {{user.lastname}}</li>
+  <li>Username: {{user.username}}</li>
+  <li>Password: {{user.password}}</li>
+  <li>Email: {{user.email}}</li>
+ </ul>
+
+  <div [hidden]='!bool'>
+	<li>First name: <input value={{user.firstname}}></li>
+	<li>Last name: <input value={{user.lastname}}></li>
+	<li>Username: <input value={{user.username}}></li>
+	<li>Password: <input value={{user.password}}></li>
+	<li>Email: <input value={{user.email}}></li>
+  </div>
+</div>
+
+
+<button (click)="edit()">Edit</button>

@@ -76,10 +76,43 @@ exports.getPlaylist = function(req, res) {
   var username = req.body.username;
   User.findOne({'username': username},function(err, result) {
       if(err) res.send(err);
-      console.log(result.playlist);
       return res.send(result.playlist);
   });
 }
+
+
+/*exports.deleteTrack = function(req, res){
+    var id = req.params.id;
+    console.log(id);
+    User.findOne({'_id': id},function(err, result) {
+        console.log(result);
+
+        if(err) res.send(err);
+        return res.send({status: 200, msg: 'Success!'});
+    });
+}*/
+      
+exports.deleteTrack = function(req, res) {
+ 
+  User.update({'username': req.body.username}, 
+    { $pull: { 'playlist' : { '_id': req.body.id } } },
+     {safe: false, upsert: true}, function(err, model) {
+        console.log(err);
+    });
+  return res.send({status: 200, msg: 'Success!'});
+};   
+      
+
+
+
+exports.findOne = function(req, res) {
+  User.findOne({'username': req.params.id},function(err, result) {
+      
+        if(err) res.send(err);
+        return res.send(result);
+    });
+}     
+
 
 
 /*

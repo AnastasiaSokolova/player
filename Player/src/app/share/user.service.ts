@@ -4,6 +4,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 
+
 @Injectable()
 export class UserService {
 
@@ -33,10 +34,20 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
 
   	return this.http.post('http://localhost:8000/getplaylist', {'username': localStorage.getItem('username')})
-  	.map((res: Response) => {
-  		   console.log(res.json());
+  	.map((res) => {
            return res.json()
     })
     .catch((error:any) => Observable.throw('error'));
   }
+
+   deleteTrack(track: String): any {
+     let headers = new Headers({ 'Content-Type': 'application/json' });
+     let options = new RequestOptions({ headers: headers });
+   	  
+      return this.http.post('http://localhost:8000/deleteTrack', {'username': localStorage.getItem('username'), 'id': track}, options)
+        .map((res) => {
+          return res.json();
+        })
+        .catch((error:any) => Observable.throw('error'));
+   }
 }

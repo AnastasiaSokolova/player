@@ -18,6 +18,12 @@ export class AuthService {
       .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
+  getUser(username: String): any {
+    return this.http.get('http://localhost:8000/users/'+username)
+      .map((res: Response) => { return res.json() })
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+  }
+
   addUser(user: User): Observable<User[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
