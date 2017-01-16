@@ -9,7 +9,7 @@ import 'rxjs/Rx';
   selector: 'login-form',
   template: `
     <div>
-      <dynamic-form [fields]="fields" (onSubmit)="onSubmit($event)"></dynamic-form>
+      <dynamic-form [fields]="fields" (onSubmit)="onSubmit($event)" [buttonName]="buttonName"></dynamic-form>
     </div>
  `,
   providers:  [FieldsService, AuthService]
@@ -19,6 +19,7 @@ export class LoginForm {
 
 
   fields: any[];
+  buttonName: String = 'Log in';
 
   constructor(service: FieldsService, private authService: AuthService, private router: Router) {
     this.fields = service.getFieldsForLogin();

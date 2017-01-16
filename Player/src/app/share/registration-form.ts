@@ -9,7 +9,7 @@ import 'rxjs/Rx';
   selector: 'registration-form',
   template: `
     <div>
-      <dynamic-form [fields]="fields" (onSubmit)="onSubmit($event)"></dynamic-form>
+      <dynamic-form [fields]="fields" (onSubmit)="onSubmit($event)" [buttonName]="buttonName"></dynamic-form>
     </div>
   `,
   providers:  [FieldsService, AuthService]
@@ -19,6 +19,7 @@ export class RegistrationForm {
 
   @ViewChild(DynamicFormComponent)
   public df: DynamicFormComponent;
+  buttonName: String = 'Registered'
 
   fields: any[];
 

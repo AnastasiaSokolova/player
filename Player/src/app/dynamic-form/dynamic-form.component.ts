@@ -19,6 +19,7 @@ import 'rxjs/Rx';
 
 export class DynamicFormComponent implements OnInit {
     @Input() fields: FieldsBase<any>[] = [];
+    @Input() buttonName: String;
     form: FormGroup;
     public users: User[];
     public clicked: boolean = false;

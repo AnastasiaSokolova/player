@@ -11,6 +11,7 @@ module.exports = function(app){
     app.post('/setplaylist', users.setPlaylist);
     app.post('/getplaylist', users.getPlaylist);
     app.post('/deleteTrack', users.deleteTrack);
+    app.put('/users/:id', users.update);
     /*app.put('/employees/:id', validate(validation), employees.update);*/
     //app.delete('/deleteTrack/:id', users.deleteTrack);
     app.get('/import', users.import);

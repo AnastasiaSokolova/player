@@ -124,9 +124,9 @@ exports.delete = function(req, res){
     });
 };*/
 
-/*
+
 exports.update = function(req, res) {
-    User.findOne({'id': req.params.id}, function(err, user) {
+    User.findOne({'username': req.params.id}, function(err, user) {
             if(err) res.send(err);
             user.firstname = req.body.firstname;
             user.lastname = req.body.lastname;
@@ -140,7 +140,7 @@ exports.update = function(req, res) {
             });
 
         });
-};*/
+};
 
 exports.add = function(req, res) {
    var user = new User(req.body);
