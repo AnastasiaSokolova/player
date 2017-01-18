@@ -17,10 +17,7 @@ export class AccountComponent implements OnInit {
   buttonName = 'Save';
 
   constructor(private service: FieldsService, private authService: AuthService) {
-    this.authService.getUser(localStorage.getItem('username')).subscribe((res)=> {  
-       this.fields = this.service.getFieldsForEdit(res);
-       this.user = res;//think about it
-     })
+    this.getUser();
    }
   
   ngOnInit() {}
@@ -30,8 +27,17 @@ export class AccountComponent implements OnInit {
   }
 
   onSubmit(value) {
-    this.authService.updateUser(value).subscribe(()=> console.log('OK!'));
+    this.authService.updateUser(value).subscribe(()=> {
+      this.getUser();
+      this.bool = !this.bool});
     
+  }
+
+  getUser():any {
+     this.authService.getUser(localStorage.getItem('username')).subscribe((res)=> {  
+       this.fields = this.service.getFieldsForEdit(res);
+       this.user = res;//think about it
+     })
   }
 
 }
