@@ -19,12 +19,12 @@ export class ContentComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.mix().subscribe((res)=> { this.tracks = res.aTracks; this.tracks.length = 50;});
+    this.userService.mix().subscribe((res)=> { console.log(res); this.tracks = res /*.aTracks; this.tracks.length = 50;*/})
   }
 
   pasteImage(image: string): string {
   	let results = 'http://media.tumblr.com/tumblr_mf3r1eERKE1qgcb9y.jpg';
-  	if(image.split('/')[0] !== 'images') {
+  	if(image) {
   		results = image;
   	} 
   	return results;
@@ -32,6 +32,10 @@ export class ContentComponent implements OnInit {
 
   saveToPlaylist(src1,src2) {
   	this.userService.saveTracks(src1, src2).subscribe(()=> console.log('Everything good'));
+  }
+
+  setSound(sound) {
+    return sound + '?client_id=rOq2IJF84CUOeFmbtBU4yjH506GnKxpJ'
   }
 
 }

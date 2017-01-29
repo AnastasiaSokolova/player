@@ -29,7 +29,15 @@ export class RegistrationForm {
   }
 
   onSubmit(value) {
-    this.authService.addUser(value).subscribe(()=> this.router.navigate(['/home']));
+    this.authService.addUser(value).subscribe(()=> this.router.navigate(['/login/loginform']));
     
+  }
+
+  modalDialog(): boolean {
+    return  this.df.form.dirty;
+  }
+  
+  wasClicked(): boolean {
+     return  this.df.clicked;
   }
 }

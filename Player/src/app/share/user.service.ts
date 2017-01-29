@@ -11,11 +11,17 @@ export class UserService {
   constructor(private http: Http){}
   
   public api_key = 'JJXZSDWMTX87EG9Q';
+  public url = 'https://api.soundcloud.com/tracks?client_id=' + 'rOq2IJF84CUOeFmbtBU4yjH506GnKxpJ';
 
 
   mix(): any {
-  	return this.http.get('https://freemusicarchive.org/featured.json?api_key=' + this.api_key + '&limit=50')
-      .map((res: Response) => { return res.json() })
+
+
+      return this.http.get(this.url)
+        .map((res: Response) => { return res.json() })
+   
+  	//return this.http.get('https://freemusicarchive.org/featured.json?api_key=' + this.api_key + '&limit=50')
+      //.map((res: Response) => { return res.json() })
   }
 
   saveTracks(src1: string, src2: string): any{

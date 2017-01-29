@@ -25,6 +25,7 @@ export const  appRoutes: Routes = <Routes>[
       {
         path: 'registration',
         component: RegistrationForm,
+        canDeactivate: [CanDeactivateGuard],
       },
       {
         path: '',

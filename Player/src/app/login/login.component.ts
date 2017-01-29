@@ -12,20 +12,13 @@ import { RegistrationForm } from '../share/registration-form';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild(RegistrationForm)
+  //@ViewChild(RegistrationForm)
 
-  public rf: RegistrationForm;
+  //public rf: RegistrationForm;
 
   constructor() { }
 
   ngOnInit() {
-  }
-
-  modalDialog(): boolean {
-    return  this.rf.df.form.dirty;
-  }
-  wasClicked(): boolean {
-    return  this.rf.df.clicked;
   }
 
 }

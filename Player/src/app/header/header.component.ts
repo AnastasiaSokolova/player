@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../share/auth.service';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit {
     this.showDialog()
     setTimeout(() => {
        this.display = false;
+       this.router.navigate(['/home'])
      }, 2000)
    
   }
