@@ -1,8 +1,8 @@
 <ul>
-	<li *ngFor = "let track of tracks">
+	<li *ngFor = "let track of tracks" [@trackState]="track.state" >
      <img [src]="pasteImage(track.artwork_url)" width="200" height="180">
-     <audio controls>	
-       <source [src]="setSound(track.stream_url)" type="audio/ogg">
+     <audio controls (pause)="track.state = 'inactive'" (play)="track.state = 'active'">
+       <source [src]="setSound(track.stream_url)" type="audio/ogg" >
           Your browser does not support the audio element.
      </audio>
      <span><i class="fa fa-plus" aria-hidden="true" (click)="saveToPlaylist(setSound(track.stream_url), pasteImage(track.artwork_url))"></i></span>

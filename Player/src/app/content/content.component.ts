@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  trigger, state, style, transition, animate } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { UserService } from '../share/user.service';
 
@@ -8,25 +8,42 @@ import 'rxjs/Rx';
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
-  providers:  [UserService]
+  providers:  [UserService],
+  animations: [
+    trigger('trackState', [
+      state('inactive', style({
+        boxShadow: 'none',
+        transform: 'scale(1)'
+      })),
+      state('active',   style({
+        boxShadow: '0 8px 14px -6px black',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class ContentComponent implements OnInit {
-  
+
 
   public tracks: Array<String> =  [];
-  
+
+
+
   constructor( private userService: UserService) { }
 
 
   ngOnInit() {
-    this.userService.mix().subscribe((res)=> { console.log(res); this.tracks = res /*.aTracks; this.tracks.length = 50;*/})
+    this.userService.mix().subscribe((res)=> { console.log(res); this.tracks = res })
+
   }
 
   pasteImage(image: string): string {
   	let results = 'http://media.tumblr.com/tumblr_mf3r1eERKE1qgcb9y.jpg';
   	if(image) {
   		results = image;
-  	} 
+  	}
   	return results;
   }
 

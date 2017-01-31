@@ -1,7 +1,8 @@
 <ul>
+  <h2 *ngIf = "tracks.length == 0">You don`t have any records in your playlist</h2>
 	<li *ngFor = "let track of tracks">
      <img [src]="track.image_url" width="200" height="200">
-     <audio controls>	
+     <audio controls>
        <source [src]="track.track_url" type="audio/ogg">
           Your browser does not support the audio element.
      </audio>

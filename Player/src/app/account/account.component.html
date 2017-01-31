@@ -1,18 +1,16 @@
-<h2>Your account</h2>
 <div *ngIf="user"  class="list">
-
- <ul [hidden]="bool">
+<ul [hidden]="bool">
   <li>First name: {{user.firstname}}</li>
   <li>Last name: {{user.lastname}}</li>
   <li>Username: {{user.username}}</li>
   <li>Password: {{user.password}}</li>
   <li>Gender: {{user.gender}}</li>
   <li>Email: {{user.email}}</li>
- </ul>	
+</ul>
 
- <div [hidden]='!bool'>
+<div [hidden]='!bool'>
       <dynamic-form [fields]="fields" [buttonName]="buttonName" (onSubmit)="onSubmit($event)"></dynamic-form>
- </div>
+</div>
 </div>
 
 

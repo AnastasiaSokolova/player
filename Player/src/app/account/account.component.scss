@@ -1,14 +1,18 @@
 .list {
-	div, ul {
-		//display: none;
-	}
-}
-
-
-.list {
    .show {
 	   display: block;
     }
 }
 
+ul {
+  list-style: none;
+}
 
+button {
+  background: #ab9bab;
+  border: none;
+  width: 100px;
+  line-height: 40px;
+  color: white;
+  margin: 20px 0 0 40px;
+}

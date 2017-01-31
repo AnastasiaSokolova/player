@@ -1,5 +1,5 @@
 ul {
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 1150px;
 }
 li {
@@ -15,8 +15,14 @@ audio {
 
 }
 
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: lightgrey;
+}
+
 i {
 	float: right;
 	color: grey;
 	cursor: pointer;
 }
+
